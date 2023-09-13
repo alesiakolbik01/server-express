@@ -1,20 +1,21 @@
 const express = require("express");
+var bodyParser = require('body-parser')
 
 const app = express();
 
-app.use('/users', (req, res) => {
-    console.log(`Hello!`)
-    res.send('<div><ul><li>user 1</li><li>user 2</li></ul></div>')
-})
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
 
 app.use('/add-product', (req, res) => {
     res.send(`<form action="/product" method="POST"><input type="text" name="product"/><button type="submit">Add product</button></form>`)
 })
 
-app.use('/product', (req, res) => {
-    if(req.method === 'POST'){
-        console.log(req.body);
-    }
+app.post('/product', (req, res) => {
+    console.log(JSON.stringify(req.body));
+    res.redirect('/');
 })
 
 app.use('/', (req, res) => {
