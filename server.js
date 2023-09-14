@@ -1,4 +1,11 @@
 const express = require("express");
+
+const path = require('path');
+
+const adminRoutes = require('./routes/admin');
+
+const shopRoutes = require('./routes/shop');
+
 var bodyParser = require('body-parser')
 
 const app = express();
@@ -6,21 +13,12 @@ const app = express();
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 
-// parse application/json
-app.use(bodyParser.json())
+app.use('/admin',adminRoutes);
 
-app.use('/add-product', (req, res) => {
-    res.send(`<form action="/product" method="POST"><input type="text" name="product"/><button type="submit">Add product</button></form>`)
-})
-
-app.post('/product', (req, res) => {
-    console.log(JSON.stringify(req.body));
-    res.redirect('/');
-})
+app.use(shopRoutes);
 
 app.use('/', (req, res) => {
-    console.log(`Tt's working!`)
-    res.status(404).send('<div><h1>Page not found</h1></div>');
+    res.status(404).sendFile(path.join(__dirname, 'views', '404.html'))
 })
 
 app.listen(3000);
