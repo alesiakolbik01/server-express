@@ -1,0 +1,32 @@
+.product-form {
+    display: flex;
+    padding: 15px;
+}
+
+.input-product {
+    border-color: #ce775a;
+    border: 0;
+    padding: 10px 15px;
+    outline: none;
+    width: 25%;
+    margin-right: 20px;
+    padding: 5px 10px;
+}
+
+.btn-submit {
+    outline: none;
+    padding: 0 20px;
+    background-color: transparent;
+    border: solid 1px #e87055;
+    color: #e87055;
+}
+
+.btn-submit:hover, 
+.btn-submit:active {
+    background-color: #e87055;
+    color: #efe7de;
+}
+
+input[type=text]  {
+    background-color: #efe7de!important;
+}

@@ -12,6 +12,7 @@ const app = express();
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/admin',adminRoutes);
 
