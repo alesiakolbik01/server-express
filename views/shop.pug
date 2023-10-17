@@ -1,0 +1,31 @@
+extends layouts/main-layout.pug 
+
+
+
+
+block styles 
+     link(rel="stylesheet", href="/css/product.css")
+block content 
+    main.main-container
+        if prods.length > 0
+            .grid 
+                each product in prods
+                    acticle.card.product-item
+                        header.card__header 
+                            h1.product__title #{product.title} 
+                        .card__image
+                            img(src="https://pbs.twimg.com/media/FPVyBl-XsAE-epK.jpg:large", alt="A book")
+                        .card__content 
+                            h2.product__price $19.99
+                            p.product__description 
+                                | The year&rsquo;s biggest book sensation and #1 New York Times bestseller returns in this completely jaw-dropping special edition, featuring:
+                                | &bull; a stunning, revamped cover
+                                | &bull; gorgeous new endpapers
+                                | &bull; black sprayed edges
+                                | &mldr;plus two bonus chapters from Xaden&rsquo;s point of view!
+                            .card__actions 
+                                button.btn-submit Add to Cart
+        else 
+            h1 No Products
+
+            

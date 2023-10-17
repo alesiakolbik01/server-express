@@ -46,7 +46,6 @@
         }
 
         body {
-            background-color: #f9ebeb;
             font-family: sans-serif;
             color: rgb(3 60 77);
         }
@@ -54,7 +53,7 @@
         .main-header {
             width: 100%;
             height: 3.5rem;
-            background-color: rgb(158 195 135 / 72%);
+            background-color: #287366;
         }
 
         .main-header__item-list {
@@ -69,14 +68,14 @@
 
         .main-header__item a {
             text-decoration: none;
-            color: rgb(4 95 64);
+            color: rgb(255, 255, 255);
             font-weight: 500;
         }
 
         .main-header__item:hover a,
         .main-header__item a.active
          {
-            color: #efe7de;
+            color: #edd55e;
         }
 
         .main-title {
@@ -92,4 +91,9 @@
         .desc-title {
             text-align: center;
             font-size: 2rem;
+        }
+
+        .main-container {
+            width: 90%;
+            margin: 50px auto 100px auto;
         }
